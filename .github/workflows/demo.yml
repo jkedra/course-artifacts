@@ -48,5 +48,7 @@ jobs:
         with:
           name: dist-files
           path: downloaded-dist
+      - name: Output filename from build job
+        run: ${{ needs.build.outputs.script-file }}
       - name: Output Content
         run: ls -lR
