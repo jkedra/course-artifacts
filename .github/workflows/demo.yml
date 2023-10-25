@@ -40,5 +40,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist-files
-      - name: List files
+          path: downloaded-dist
+      - name: Output Content
         run: ls -lR
