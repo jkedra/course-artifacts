@@ -20,7 +20,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     outputs:
-      script-file: ${{ steps.publish.output.script-name }}
+      script-file: ${{ steps.publish.outputs.script-name }}
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -30,7 +30,9 @@ jobs:
         run: npm run build
       - name: Publish JS filename
         id: publish
-        run: find dist -name \*.js -printf "script-name=%f\n" >> $GITHUB_OUTPUT
+        run: >
+          find dist -name \*.js -printf "script-name=%f\n" 
+            >> $GITHUB_OUTPUT
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
