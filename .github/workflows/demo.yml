@@ -30,9 +30,7 @@ jobs:
         run: npm run build
       - name: Publish JS filename
         id: publish
-        run: > 
-          find dist -name \*.js -printf "script-name=%f\n" 
-          >> $GITHUB_OUTPUT
+        run: find dist -name \*.js -printf "script-name=%f\n" >> $GITHUB_OUTPUT
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
