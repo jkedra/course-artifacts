@@ -40,12 +40,12 @@ jobs:
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: show content
         run: |
-          du -sh ~/.npm
+          du -sh ~/.npm node_modules
       - name: Install dependencies
         run: npm list
       - name: show content
         run: |
-          du -sh ~/.npm
+          du -sh ~/.npm node_modules
       - name: Build website
         run: npm run build
       - name: Publish JS filename
