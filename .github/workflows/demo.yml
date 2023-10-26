@@ -6,6 +6,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      npm_cache: ${{ steps.npm_cache.outputs.npm_cache }}
     steps:
       - name: Get code
         uses: actions/checkout@v3
